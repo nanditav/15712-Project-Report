@@ -1,0 +1,49 @@
+\documentclass[pageno]{jpaper}
+\usepackage[english]{babel}
+\usepackage[normalem]{ulem}
+\usepackage{pifont}
+\usepackage{mathtools}
+\usepackage{listings}
+\hypersetup{
+     colorlinks   = true,
+     citecolor    = black,
+     linkcolor    = black
+}
+
+%\numberofauthors{2}
+
+\begin{document}
+
+\title{Approximate Cache Coherence}
+
+\DeclareRobustCommand{\authorthing}{
+\begin{tabular}[t]{cc}
+Nandita Vijaykumar & Amirali Boroumand \\
+\texttt{nandita@cmu.edu} & \texttt{amirali@cmu.edu}\\
+\multicolumn{2}{c}{\textbf{Carnegie Mellon University}}
+\end{tabular}
+}
+\author{\authorthing}
+
+\date{}
+\maketitle
+\let\oldtabular\tabular
+\renewcommand{\tabular}{\footnotesize\oldtabular}
+
+\thispagestyle{empty}
+
+\input{introduction}
+\input{motivation}
+\input{approximate}
+\input{errorbounding}
+\input{methodology}
+\input{results}
+\input{conclusion}
+%\input{futurework}
+
+\bstctlcite{bstctl:etal, bstctl:nodash, bstctl:simpurl}
+\bibliographystyle{IEEEtranS}
+\bibliography{references}
+
+\end{document}
+

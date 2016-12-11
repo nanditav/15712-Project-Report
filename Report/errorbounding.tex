@@ -1,0 +1,31 @@
+\section{Error Bounding}
+
+An important challenge with an approximate coherence protocol is error bounding.
+All forms of approximation at any level of the stack requires some mechanism to
+ensure that the imprecision introduced into the system doesn't cause
+catastrophic crashes to the system and provides a weak guarantee with respect
+to the error bound specified by the programmer. We discuss a few mechanisms to
+provide some sort of guarantee to the programmer. The error bounding mechanism
+here is essentially defining when an update is either "Big" or "Small". 
+
+\subsection{Data-driven Error Bounding}  
+Here, defining whether an update is "Big" or "Small" is defined by the size of
+the update in terms of the data value. If the size falls within a predetermined
+error threshold, it is treated as a "Small" update. Otherwise it is treated like
+a "Big" Update. The tricky part here is conveying the threshold from what is 
+desired by the programmer to the hardware, so we can make this decision. Also we
+would need hardware to compare each data value during an update to determine how
+"Big" or "Small" it is. This can lead to high overhead. 
+
+\subsection{Probability Error Bounding}  
+We can also switch between "Big" and "Small" updates \emph{probabilistically}.
+This has high overhead since we no longer consider the data value itself and
+seems use heuristics to determine the weight of the update. Some heuristics
+could include: 
+\begin{itemize}
+\item Switch from "M" to "H" after a certain number of updates to a cache line.
+\item Choose from "M" and "H" based on the number of cores that are sharing the
+cache line
+\item Choose form "M" and "H" is a globally probabilistic way.
+
+\end{itemize}
