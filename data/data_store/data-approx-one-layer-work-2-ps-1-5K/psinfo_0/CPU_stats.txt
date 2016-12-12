@@ -1,0 +1,40 @@
+Linux 4.2.0-18-generic (candidat0) 	12/07/2016 	_x86_64_	(8 CPU)
+
+11:44:41 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+11:44:41 AM  all    0.20    0.00    0.35    0.01    0.00    0.21    0.00    0.00    0.00   99.23
+Linux 4.2.0-18-generic (candidat0) 	12/07/2016 	_x86_64_	(8 CPU)
+
+11:59:42 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+11:59:42 AM  all    0.20    0.00    0.35    0.01    0.00    0.21    0.00    0.00    0.00   99.22
+Linux 4.2.0-18-generic (candidat0) 	12/07/2016 	_x86_64_	(8 CPU)
+
+12:14:42 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:14:42 PM  all    0.20    0.00    0.35    0.01    0.00    0.21    0.00    0.00    0.00   99.22
+Linux 4.2.0-18-generic (candidat0) 	12/07/2016 	_x86_64_	(8 CPU)
+
+12:29:42 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:29:42 PM  all    0.20    0.00    0.35    0.01    0.00    0.21    0.00    0.00    0.00   99.22
+Linux 4.2.0-18-generic (candidat0) 	12/07/2016 	_x86_64_	(8 CPU)
+
+12:44:42 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:44:42 PM  all    0.20    0.00    0.36    0.01    0.00    0.21    0.00    0.00    0.00   99.22
+Linux 4.2.0-18-generic (candidat0) 	12/07/2016 	_x86_64_	(8 CPU)
+
+12:59:42 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:59:42 PM  all    0.20    0.00    0.36    0.01    0.00    0.21    0.00    0.00    0.00   99.21
+Linux 4.2.0-18-generic (candidat0) 	12/07/2016 	_x86_64_	(8 CPU)
+
+01:14:42 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+01:14:42 PM  all    0.20    0.00    0.36    0.01    0.00    0.22    0.00    0.00    0.00   99.21
+Linux 4.2.0-18-generic (candidat0) 	12/07/2016 	_x86_64_	(8 CPU)
+
+01:29:42 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+01:29:42 PM  all    0.20    0.00    0.36    0.01    0.00    0.22    0.00    0.00    0.00   99.21
+Linux 4.2.0-18-generic (candidat0) 	12/07/2016 	_x86_64_	(8 CPU)
+
+01:44:42 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+01:44:42 PM  all    0.20    0.00    0.36    0.01    0.00    0.22    0.00    0.00    0.00   99.20
+Linux 4.2.0-18-generic (candidat0) 	12/07/2016 	_x86_64_	(8 CPU)
+
+01:59:42 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+01:59:42 PM  all    0.20    0.00    0.37    0.01    0.00    0.22    0.00    0.00    0.00   99.20
