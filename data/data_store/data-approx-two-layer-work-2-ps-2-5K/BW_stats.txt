@@ -1,4 +1,0 @@
-19.15 Mbit/s
-19.33 Mbit/s
-19.49 Mbit/s
-19.94 Mbit/s
