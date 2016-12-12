@@ -1,7 +1,9 @@
 \section{Experimental Setup}
 In this section we describe our experimental setup to evaluate the scalability of distributed training and investigate techniques to accelerate training by leveraging approximations. 
 \subsection{TensorFlow}
-TensorFlow (~\cite{tensorflow}) is a machine learning system that is designed to operate at large scale across numerous heterogeneous distributed systems. TensorFlow using dataflow graphs to represent the desired computation for a machine learning algorithm. TensorFlow allows distributing the computation between different nodes in a distributed system by replicating the dataflow graph across different nodes or partitioning subgraphs of the computation across different nodes. 
+TensorFlow (~\cite{tensorflow}) is a machine learning system that is designed to operate at large scale across numerous heterogeneous distributed systems. TensorFlow using dataflow graphs to represent the desired computation for a machine learning algorithm. TensorFlow allows distributing the computation between different nodes in a distributed system by replicating the dataflow graph across different nodes or partitioning subgraphs of the computation across them. As a result, the computation can be partitioned between different \emph{workers} which may be executed on different nodes. 
+
+The ability of TensorFlow to flexibly distribute computation across numerous nodes, as well as flexibly describe typically used neural networks, makes it a good choice to test the efficiency and challenges of large-scale distributed training. Training neural networks essentially involves processing large amounts of data and \emph{training} models to generate desired labels for each input. This requires computing a \emph{forward pass} operation on each batch of input data and a \emph{backward pass} to compute the gradients and update the parameters of the neural network. 
 
 \subsection{Cifar10}
 \subsection{Distributed System Infrastructure}
