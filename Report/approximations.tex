@@ -1,14 +1,13 @@
-\section{Leveraging Heterogeneous Approximation to Accelerate Distribute Training}
-In this section we describe the different approximation modes which we explored in the course of the project. We focus on \textit{training update elisions}, which involves not updating the weights and biases of specific layers at certain training steps. Two kinds of training elisions were explored:
+\subsection{Evaluation and Analysis}
+In this section, we evaluate the above techniques to leverage the approximation-tolerance of the neural network to accelerate distributed training. We essentially performing \textit{training update elisions}, which involves not updating the weights and biases of specific layers at certain training steps. Two kinds of training elisions were explored:
 \begin{itemize}
-	\item \textit{Selective Training Elision} involves training the entire network until a given training step $\kappa$. For steps succedding $\kappa$, only parameters corresponding to certain layers are updated, while updates for other layers are elided.
+	\item \textit{Selective Training Elision} involves training the entire network until a given training step $\kappa$. For steps succedding $\kappa$, only parameters corresponding to certain layers are updated, while updates and gradient computation for other layers are elided.
 	\item \textit{Periodic Training Elision} involves performing training elisions once every $n$ steps, where $n$ is called the periodic elision interval. The parameters of the entire network are updated for $n-1$ steps, followed by a step where only parameters corresponding to certain layers are updated.
 \end{itemize}
 
-Both types of approximations partially update the model weights in a specified training step. We expect that using update elision will  reduces the amount of computation required in a training step, as well as the communication overhead required for distributed training. 
+Both types of approximations partially update the model weights in a specified training step. We expect that using update elision will  reduce the amount of computation required in a training step, as well as the communication overhead required for distributed training. 
 
-\subsection{Results}
-We now discuss the experimental results. Different approximation techniques are compared on the basis of classification accuracy (on held out data) and training time. We present results for both single node training as well as distributed training for a number of different cluster configurations. In each of our experiments, we checkpoint the model every 1000 trained steps, and use the checkpointed model to compute the achieved classification accuracy.
+We now discuss the experimental results. Different approximation techniques are compared on the basis of classification accuracy (on the full testing data) and training time. We present results for both single node training as well as distributed training for a number of different cluster configurations. In each of our experiments, we checkpoint the model every 1000 trained steps, and use the checkpointed model to compute the achieved classification accuracy.
 
 \subsubsection{Single Node Training}
 \begin{figure}[t]
