@@ -13,3 +13,23 @@ To perform and evaluate our experiments in distributed training in TensorFlow, w
 The neural network comprises of nine layers with five of them being trainable (the convolutional, softmax and fully connected layers). The layer architecture for CIFAR-10 is depicted in Figure. 
 
 \subsection{Distributed System Infrastructure}
+
+For running distributed training we used the cluster
+at Intel Research Pittsburgh. The cluster consists 
+of 150 servers nodes with the number of computing
+cores claimed to be more than 1000 \cite{tashi}.
+Figure \ref{fig:bigdata} provides details about the
+different compute platforms and the network
+bandwidth available. The cluster uses a virtual machine
+managment system \cite{tashi} that allows creation of different Virtual
+Machines on different racks.
+
+\begin{figure}[h]
+\centering
+  \includegraphics[keepaspectratio,width=\columnwidth]{figures/bigdata.jpg}
+  \caption{\textbf{Cluster at Intel Research Pittsburgh}}
+  \label{fig:bigdata}
+\end{figure}
+
+
+
