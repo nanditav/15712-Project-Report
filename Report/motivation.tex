@@ -48,39 +48,43 @@ Figure \ref{fig:scalability} shows the execution time required
 to complete 20000 steps when run with 1,2 and 4 workers with
 and without synchronization. The 
 execution times for all the configurations are normalized to 
-the single worker case. The data shows that the performance
-of the precise and execution 
+the single worker case. The data shows poor scaling for distributed
+training in both the synchronous and asynchronous modes. Asynchronous
+has a marginally lower execution time compared to the synchronous 
+training runs with 2 and 4 workers. This performance improvement
+comes at the cost of reduced accuracy of the trained network (12\%
+for 4 workers and 3\% for 2 workers)
 
+The poor scaling of distributed training motivates the need for
+approximation strategies to improve execution time without 
+significantly compromising on model accuracy.
 
-
-
-
-> Why distribute? 
-Model parallelism allows training more complex models with many 
-parameters. This is a progression from using GPUs to many different
-machines. 
-
-> synchronous training scalability. Impact of synchrony on accuracy
-Why do we use synchronous training. Is it because we have a system
-that is similar to the single node version? 
-This berkeley thesis talks about why synchronization is important. 
-Apparently synchronization allows for faster convergence because 
-the average of the local updates of different machines reduces the
-variance in data which leads to faster convergence. (https://www2.eecs.berkeley.edu/Pubs/TechRpts/2016/EECS-2016-47.pdf)
-Blindly removing synchrony in an application does not seem to be
-completely useful.
-
-The impact of asynchrony on accuracy is that we are making judgements
-on only part of the data that was present in our local store. This
-higlights the dependence of the distribution of data and the homogeniety
-(in terms of information) of the data. I think this was the premise of 
-the hogwild paper.
-
-> How does asynchrony affect training time? And accuracy
-Stragglers are an issue in any large scale distributed training. If 
-we use machines with different processing times (as in a distributed
-cluster with different processing times) then the effects of stragglers
-are exaggerated. 
+%% > Why distribute? 
+%% Model parallelism allows training more complex models with many 
+%% parameters. This is a progression from using GPUs to many different
+%% machines. 
+%% 
+%% > synchronous training scalability. Impact of synchrony on accuracy
+%% Why do we use synchronous training. Is it because we have a system
+%% that is similar to the single node version? 
+%% This berkeley thesis talks about why synchronization is important. 
+%% Apparently synchronization allows for faster convergence because 
+%% the average of the local updates of different machines reduces the
+%% variance in data which leads to faster convergence. (https://www2.eecs.berkeley.edu/Pubs/TechRpts/2016/EECS-2016-47.pdf)
+%% Blindly removing synchrony in an application does not seem to be
+%% completely useful.
+%% 
+%% The impact of asynchrony on accuracy is that we are making judgements
+%% on only part of the data that was present in our local store. This
+%% higlights the dependence of the distribution of data and the homogeniety
+%% (in terms of information) of the data. I think this was the premise of 
+%% the hogwild paper.
+%% 
+%% > How does asynchrony affect training time? And accuracy
+%% Stragglers are an issue in any large scale distributed training. If 
+%% we use machines with different processing times (as in a distributed
+%% cluster with different processing times) then the effects of stragglers
+%% are exaggerated. 
 
 
 
