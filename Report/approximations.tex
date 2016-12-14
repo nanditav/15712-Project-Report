@@ -22,8 +22,10 @@ From Figure 1, we make the following observations:
 \subsubsection{Single Node Accuracy \& Training Time.}
 In addition to Figure 1 where the periodicity of training elision was \emph{two steps}, we conduct an experiment where we elide training at a periodicity of \emph{5 steps}. The accuracy results are depicted in Figure 2. We find that the neural network is resilient enough to tolerate this approximation irrespective of the number of layers for which training was elided with the exception of eliding the bottom 4 layers which produced a minor reduction in the accuracy. 
 
-We also evaluated the resulting speedup in training time as a result of the described approximations. Figure 3 depicts the normalized training speedup for both 2 and 5 step periodic training elision. We make the following observations: \emph{(i)} First, we observe that eliding training for 4 layers (2 step) produces a speedup of as much as 45\%; \emph{(ii)} Second, eliding training with a lower periodicity of does not produce a significant bump in speedup 
+We also evaluated the resulting speedup in training time as a result of the described approximations. Figure 3 depicts the normalized training speedup for both 2 and 5 step periodic training elision. We make the following observations: \emph{(i)} we observe that eliding training for 4 layers (2 step) produces a speedup of as much as 45\%; \emph{(ii)} Eliding training with a lower periodicity of 5 steps does not produce a significant bump in speedup (only 11.8\%); \emph{(iii)} Eliding a single layer does not produces only an insignificant improvement in training time. 
 Since this is a single node experiment, the speedups come from eliding the gradient computation for several layers.  
+
+
 Figure 1: Periodic Training Elision (every 2 steps for both upper layers and lower layers) -- Accuracy
 Figure 2: Periodic Training Elision (every 5) -- Accuracy
 Figure 3: Periodic Training Elision (every 2 \& 5 steps for both upper layers and lower layers) -- Execution Time
