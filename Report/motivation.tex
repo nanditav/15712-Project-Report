@@ -20,7 +20,7 @@ this scale introduces new challenges.
 
 Large scale distribution creates a communication bottleneck. Most 
 machine learning applications are iterative algorithms that progressively
-refine the result. The most intuitive form of parallelism for such 
+refine the result. The intuitive form of parallelism for such 
 applications is to divide the input data among many workers and 
 synchronize the progress made by each worker every iteration. The 
 problem with this Bulk Synchronous Parallelism model of distribution 
@@ -33,7 +33,7 @@ The problem of stragglers has spawned active research on a variety
 of consistency models that relax synchronization without compromising
 the convergence rate\cite{communicationthesis}\cite{ganger}.
 We performed experiments to understand the effect of synchronization 
-on the execution time and model accuracy of disrtibuted training.
+on the execution time and model accuracy of distributed training.
 
 \subsection{Effect of Synchronization}
 
@@ -71,7 +71,7 @@ indicates the presence of stragglers for asynchronous training.
 
 The poor scaling of distributed training motivates the need for
 approximation strategies to improve execution time without 
-significantly compromising on model accuracy.
+significantly compromising model accuracy.
 
 %% > Why distribute? 
 %% Model parallelism allows training more complex models with many 
