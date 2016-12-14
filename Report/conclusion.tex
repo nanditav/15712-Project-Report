@@ -1,8 +1,4 @@
 \section{Conclusion}
-\subsection{Learnings:}
-\subsection{Contributions:}
-\begin{itemize}
-\item An analysis of the scalability of distributed training using TensorFlow
-\item An evaluation of heterogeneous approximation techniques to accelerate distributed training
-\end{itemize}
-\subsection{Constraints:}
+In the course of our project, we have studied the impact of using update elisions for deep neural network training. Specifically, we have measured the impact of approximations on classification accuracy and training speedup. We performed experiments by training a Convolutional Neural Network (CNN) model on the CIFAR-10 dataset, using the TensorFlow framework. Two types of training elision techniques were considered, namely Selective Early Termination and Periodic Training Elision. For both these techniques we varied the number of layers for which updates were elided. We found that both of these techniques lead to significant speedup in training time with a minor impact on training accuracy.  Of the two techniques proposed, we observe that while the obtained accuracy is similar, Selective Early Termination shows potential for more training speedup.
+
+Our experiments also indicate that the upper layers of our trained model are more resilient to approximations.
