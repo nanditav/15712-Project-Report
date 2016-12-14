@@ -11,11 +11,20 @@ Both types of approximations partially update the model weights in a specified t
 We now discuss the experimental results. Different approximation techniques are compared on the basis of classification accuracy (on the full testing data) and training time. We present results for both single node training as well as distributed training for a number of different cluster configurations. In each of our experiments, we checkpoint the model every 1000 trained steps, and use the checkpointed model to compute the achieved classification accuracy.
 
 \subsection{Periodic Training Elision}
-\subsubsection{Single Node.}
+\subsubsection{Sensitivity of Different Layers to Training Elision}
+To determine how the convergence of the model is impacted by the training elision for different layers, we conduct an experiment where we periodically do not train or update a different number of layers. Figure 1 depicts the accuracy achieved during training while periodically eliding training for a different number of layers starting from the bottom up (dashed lines) and top down (unbroken lines).
+From Figure 1, we make the following observations: 
+\begin{enumerate}
+\item Eliding a single layer (top-most or bottom-most) has negligible impact on accuracy.
+\item When eliding the \emph{same number} of layers, eliding training for the \emph{top layers} first consistently faster convergence and better accuracy than eliding the bottom layers.
+\item Eliding the bottom 4 layers anomalously produces faster convergence than eliding the 3 bottom layers. 
+\end{enumerate}
+\subsubsection{Single Node Accuracy & Training Time.}
 Figure 1: Periodic Training Elision (every 2 steps for both upper layers and lower layers) -- Accuracy
+\textbf{How}
 Figure 2: Periodic Training Elision (every 5) -- Accuracy
 Figure 3: Periodic Training Elision (every 2 & 5 steps for both upper layers and lower layers) -- Execution Time
-\subsubsection{Mutiple Workers.}
+\subsubsection{Mutiple Workers Accuracy and Training Time.}
 Figure 4: Periodic Training Elision 2 workers (every 2 steps for both upper layers and lower layers) -- Accuracy
 Figure 5: Periodic Training Elision 4 workers (every 2 steps for both upper layers and lower layers) -- Accuracy
 Figure 6: Periodic Training Elision 2&4 workers (every 2 steps for both upper layers and lower layers) -- Execution Time
