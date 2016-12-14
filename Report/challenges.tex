@@ -1,0 +1,18 @@
+\section{Challenges}
+
+In this section, we discuss the challenges faced while setting
+up tensorflow and the cluster for distributed training
+
+Setting up the CIFAR10 model in tensorflow for distributed training
+dominated the setup time for tensorflow. The next challenge was to 
+change the tensorflow model to elide updates to different layers
+of the neural network. Lack of simple documentation made the task
+difficult
+
+Our initial experiments with tensorflow displayed very high variance
+in results between runs. It took us a while to trace this problem
+to the mismatch in the compute nodes used for different runs. We solved
+this problem to some extent by running tensorflow on similar machines
+in the compute cluster.
+
+

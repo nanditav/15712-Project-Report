@@ -39,21 +39,22 @@ on the execution time and model accuracy of disrtibuted training.
 
 \begin{figure}[h]
 \centering
-  \includegraphics[keepaspectratio,width=.9\columnwidth]{figures/15712-corrected-scalability.png}
+  \includegraphics[keepaspectratio,width=\columnwidth]{figures/scaling_train_time.PNG}
   \caption{\textbf{Scalability to multiple workers}}
   \label{fig:scalability}
 \end{figure}
 
 Figure \ref{fig:scalability} shows the execution time required 
-to complete 20000 steps when run with 1,2 and 4 workers with
+to complete 20000 steps when run with 1, 2, 4 and 6 workers with
 and without synchronization. The 
 execution times for all the configurations are normalized to 
 the single worker case. The data shows poor scaling for distributed
-training in both the synchronous and asynchronous modes. Asynchronous
-has a marginally lower execution time compared to the synchronous 
-training runs with 2 and 4 workers. This performance improvement
-comes at the cost of reduced accuracy of the trained network (12\%
-for 4 workers and 3\% for 2 workers)
+training in both the synchronous and asynchronous modes. Increasing
+the number of parameter servers also does not improve the scalability
+of distributed training.
+This performance improvement
+comes at the cost of reduced accuracy of the trained network (~10\%
+on average)
 
 The poor scaling of distributed training motivates the need for
 approximation strategies to improve execution time without 
