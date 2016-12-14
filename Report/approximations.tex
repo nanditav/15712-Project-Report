@@ -37,7 +37,7 @@ We also evaluated the resulting speedup in training time as a result of the desc
 \begin{figure}[t]
 	\centering
 	\includegraphics[width=0.8\columnwidth]{figures/fig3.PNG}
-	\caption{Normalized training time for Periodic Training Elision (every 2 and 5 steps)}
+	\caption{Normalized speedup for Periodic Training Elision (every 2 and 5 steps)}
 	\label{fig:fig3}
 \end{figure}
 
@@ -45,23 +45,29 @@ We also evaluated the resulting speedup in training time as a result of the desc
 %Figure 2: Periodic Training Elision (every 5) -- Accuracy
 %Figure 3: Periodic Training Elision (every 2 \& 5 steps for both upper layers and lower layers) -- Execution Time
 \subsubsection{Mutiple Workers Accuracy and Training Time.}
+Figure~\ref{fig:fig4} depicts periodic training elision in a distributed setting with 4 workers. We find that approximating training for both 3 and 4 layers does not have a noticeable impact on convergence or accuracy.\footnote{It is possible that the impact of approximation is only noticeable after our evaluated training time of 2000 steps.} Figure~\ref{fig:fig5} depicts the normalized speedup for periodic training elision with 4 workers. We find that periodic training elision is able to provide a speedup of as much as 2.7x while eliding training for 3 layers, and 2.85x for 4 layers. 
 \begin{figure}[t]
 	\centering
 	\includegraphics[width=0.8\columnwidth]{figures/fig4.eps}
 	\caption{Periodic Training Elision: 4 workers (every 2 steps)}
 	\label{fig:fig4}
 \end{figure}
+\begin{figure}[t]
+	\centering
+	\includegraphics[width=0.8\columnwidth]{figures/fig5.PNG}
+	\caption{Normalized speedup for Periodic Training Elision: 4 workers (every 2 steps)}
+	\label{fig:fig5}
+\end{figure}
 %Figure 4: Periodic Training Elision 4 workers (every 2 steps for both upper layers and lower layers) -- Accuracy
 %Figure 5: Periodic Training Elision 4 workers (every 2 steps for both upper layers and lower layers) -- Execution Time
 \subsection{Selective Early Termination}
 \subsubsection{Single Node.} 
-%Figure 6: Selective Early Termination (2K steps) -- Accuracy
-%Figure 7: Selective Early Termination (5K steps) -- Accuracy
-%Figure 8: Selective Early Termination (2K \& 5K steps) -- Execution Time
+%Figure 6: Selective Early Termination (5K steps) -- Accuracy
+%Figure 7: Selective Early Termination (5K steps) -- Execution Time
 \subsubsection{Multiple Workers}
-%Figure 9: Selective Early Termination 2 workers (5K steps) -- Accuracy 
-%Figure 10: Selective Early Termination 4 workers (2K steps) -- Accuracy
-%Figure 11: Selective Early Termination 2 \& 4 (2K \& 5K steps) -- Execution Time
+%Figure 8: Selective Early Termination 2 workers (5K steps) -- Accuracy 
+%Figure 9: Selective Early Termination 4 workers (2K steps) -- Accuracy
+%Figure 10: Selective Early Termination 2 \& 4 (2K \& 5K steps) -- Execution Time
 \begin{figure}[t]
 	\centering
 	\includegraphics[width=0.8\columnwidth]{figures/approx.eps}
