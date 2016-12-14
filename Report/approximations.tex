@@ -37,7 +37,7 @@ We also evaluated the resulting speedup in training time as a result of the desc
 
 \begin{figure}[t]
 	\centering
-	\includegraphics[width=0.8\columnwidth]{figures/fig3.PNG}
+	\includegraphics[width=1.0\columnwidth]{figures/fig3.PNG}
 	\caption{Normalized speedup for Periodic Training Elision (every 2 and 5 steps)}
 	\label{fig:fig3}
 \end{figure}
@@ -57,17 +57,13 @@ Figure~\ref{fig:fig4} depicts periodic training elision in a distributed setting
 
 \begin{figure}[t]
 	\centering
-	\includegraphics[width=0.8\columnwidth]{figures/fig5.PNG}
+	\includegraphics[width=1.0\columnwidth]{figures/fig5.PNG}
 	\caption{Normalized speedup for Periodic Training Elision: 4 workers (every 2 steps)}
 	\label{fig:fig5}
 \end{figure}
 %Figure 4: Periodic Training Elision 4 workers (every 2 steps for both upper layers and lower layers) -- Accuracy
 %Figure 5: Periodic Training Elision 4 workers (every 2 steps for both upper layers and lower layers) -- Execution Time
 \subsection{Selective Early Termination}
-\subsubsection{Single Node Accuracy and Speedup} 
-In Figure~\ref{fig:fig6}, we plot the obtained accuracy versus the training step for a selective early termination experiment running on a single machine. For each of the compared experiments we train all layers of the model until the 5000th training step. For the subsequent steps the training data is used to update only the top $\eta$ trainable layers of the model, where $\eta$ was chosen between $1$ to $4$ in our experiments. Note that, for a $N$ layer neural network $\eta=i$ corresponds to update elision for the first $N-\eta$ trainable layers. From the plot we can observe that eliding one layer has a neglible impact on accuracy, but eliding more than one layer leads to about 3\% drop in accuracy. After the training termination point, the network continues to improve accuracy for a short while, before converging on accuracy that is less than Baseline. 
-Figure~\ref{fig:fig7} depicts the normalized speedup for selective early termination. We find that on a single machine selective early termination is able to produce as much as 2.3x reduction in training time.  
-
 \begin{figure}[t]
 	\centering
 	\includegraphics[width=0.8\columnwidth]{figures/fig6.eps}
@@ -77,14 +73,18 @@ Figure~\ref{fig:fig7} depicts the normalized speedup for selective early termina
 
 \begin{figure}[t]
 	\centering
-	\includegraphics[width=0.8\columnwidth]{figures/fig7.PNG}
+	\includegraphics[width=1.0\columnwidth]{figures/fig7.PNG}
 	\caption{Normalized speedup for Selective Early Termination: 1 worker}
 	\label{fig:fig7}
 \end{figure}
+
+\subsubsection{Single Node Accuracy and Speedup} 
+In Figure~\ref{fig:fig6}, we plot the obtained accuracy versus the training step for a selective early termination experiment running on a single machine. For each of the compared experiments we train all layers of the model until the 5000th training step. For the subsequent steps the training data is used to update only the top $\eta$ trainable layers of the model, where $\eta$ was chosen between $1$ to $4$ in our experiments. Note that, for a $N$ layer neural network $\eta=i$ corresponds to update elision for the first $N-\eta$ trainable layers. From the plot we can observe that eliding one layer has a neglible impact on accuracy, but eliding more than one layer leads to about 3\% drop in accuracy. After the training termination point, the network continues to improve accuracy for a short while, before converging on accuracy that is less than Baseline. 
+Figure~\ref{fig:fig7} depicts the normalized speedup for selective early termination. We find that on a single machine selective early termination is able to produce as much as 2.3x speedup in training time.  
+
+
 %Figure 6: Selective Early Termination (5K steps) -- Accuracy
 %Figure 7: Selective Early Termination (5K steps) -- Execution Time
-\subsubsection{Multiple Workers Accuracy and Speedups}
-
 \begin{figure}[t]
 	\centering
 	\includegraphics[width=0.8\columnwidth]{figures/fig8.eps}
@@ -97,9 +97,14 @@ Figure~\ref{fig:fig7} depicts the normalized speedup for selective early termina
 	\caption{Selective Early Termination for 4 workers (after 2K steps)}
 	\label{fig:fig9}
 \end{figure}
+\subsubsection{Multiple Workers Accuracy and Speedups}
+Figures~\ref{fig:fig8} and \ref{fig:fig9} plot the obtained accuracy versus the training step for selective early termination experiments in a distributed context with two workers and four workers respectively. For the two worker setting we begin selective update elisions after the 5000th training step and for the 4 worker setting we do so after the 2000th step. Like the single node experiment, we update only the top $\eta$trainable layers of the model, where $\eta$ was chosen between $2$ to $4$ for two worker experiments, and between $3$ to $4$ for four worker experiments. After the training termination point, the network continues to improve accuracy for a short while, before converging on accuracy values that are nearly equal to the baseline. 
+
+Figure~\ref{fig:fig10} depicts the normalized speedup for selective early termination in a distributed context. We find that a two worker setup, selective early termination is able to produce as much as 1.4x speedup in training time. Similarly, for a four worker setup we observe upto 2.4x of training speedup.
+
 \begin{figure}[t]
 	\centering
-	\includegraphics[width=0.8\columnwidth]{figures/fig10.PNG}
+	\includegraphics[width=1.0\columnwidth]{figures/fig10.PNG}
 	\caption{Normalized speedup for Selective Early Termination: 2 and 4 workers}
 	\label{fig:fig10}
 \end{figure}
