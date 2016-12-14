@@ -12,7 +12,7 @@ We now discuss the experimental results. Different approximation techniques are 
 
 \subsection{Periodic Training Elision}
 \subsubsection{Sensitivity of Different Layers to Training Elision}
-To determine how the convergence of the model is impacted by the training elision for different layers, we conduct an experiment where we periodically do not train or update a different number of layers. Figure 1 depicts the accuracy achieved during training while periodically eliding training for a different number of layers starting from the bottom up (dashed lines) and top down (unbroken lines).
+To determine how the convergence of the model is impacted by the training elision for different layers, we conduct an experiment where we do not train or update a different number of layers every \emph{alternate step}. Figure 1 depicts the accuracy achieved during training while periodically eliding training for a different number of layers starting from the bottom up (dashed lines) and top down (unbroken lines). 
 From Figure 1, we make the following observations: 
 \begin{enumerate}
 \item Eliding a single layer (top-most or bottom-most) has negligible impact on accuracy.
@@ -20,8 +20,9 @@ From Figure 1, we make the following observations:
 \item Eliding the bottom 4 layers anomalously produces faster convergence than eliding the 3 bottom layers. 
 \end{enumerate}
 \subsubsection{Single Node Accuracy \& Training Time.}
+In addition to Figure 1 where the periodicity of training elision was \emph{two steps}, we conduct an experiment where we elide training at a periodicity of \emph{5 steps}. The accuracy results are depicted in Figure 2. We find that the neural network is resilient enough to tolerate this approximation irrespective of the number of layers for which training was elided with the exception of eliding the bottom 4 layers which produced a minor reduction in the accuracy. 
+
 Figure 1: Periodic Training Elision (every 2 steps for both upper layers and lower layers) -- Accuracy
-\textbf{How}
 Figure 2: Periodic Training Elision (every 5) -- Accuracy
 Figure 3: Periodic Training Elision (every 2 \& 5 steps for both upper layers and lower layers) -- Execution Time
 \subsubsection{Mutiple Workers Accuracy and Training Time.}
