@@ -61,48 +61,25 @@ Figure~\ref{fig:fig4} depicts periodic training elision in a distributed setting
 %Figure 4: Periodic Training Elision 4 workers (every 2 steps for both upper layers and lower layers) -- Accuracy
 %Figure 5: Periodic Training Elision 4 workers (every 2 steps for both upper layers and lower layers) -- Execution Time
 \subsection{Selective Early Termination}
-\subsubsection{Single Node.} 
+\subsubsection{Single Node Accuracy and Speedup} 
+In Figure~\ref{fig:fig6}, we plot the obtained accuracy versus the training step for a selective early termination experiment running on a single machine. For each of the compared experiments we train all layers of the model until the 5000th training step. For the subsequent steps the training data is used to update only the top $\eta$ trainable layers of the model, where $\eta$ was chosen between $1$ to $4$ in our experiments. Note that, for a $N$ layer neural network $\eta=i$ corresponds to update elision for the first $N-\eta$ trainable layers. From the plot we can observe that eliding one layer has a neglible impact on accuracy, but eliding more than one layer leads to about 3\% drop in accuracy. After the training termination point, the network continues to improve accuracy for a short while, before converging on accuracy that is less than Baseline. 
+Figure~\ref{fig:fig7} depicts the normalized speedup for selective early termination. We find that on a single machine selective early termination is able to produce as much as 2.3x reduction in training time.  
+\begin{figure}[t]
+	\centering
+	\includegraphics[width=0.8\columnwidth]{figures/fig6.eps}
+	\caption{Selective Early Termination: 1 worker}
+	\label{fig:fig6}
+\end{figure}
+\begin{figure}[t]
+	\centering
+	\includegraphics[width=0.8\columnwidth]{figures/fig7.PNG}
+	\caption{Normalized speedup for Selective Early Termination: 1 worker}
+	\label{fig:fig7}
+\end{figure}
 %Figure 6: Selective Early Termination (5K steps) -- Accuracy
 %Figure 7: Selective Early Termination (5K steps) -- Execution Time
 \subsubsection{Multiple Workers}
 %Figure 8: Selective Early Termination 2 workers (5K steps) -- Accuracy 
 %Figure 9: Selective Early Termination 4 workers (2K steps) -- Accuracy
 %Figure 10: Selective Early Termination 2 \& 4 (2K \& 5K steps) -- Execution Time
-\begin{figure}[t]
-	\centering
-	\includegraphics[width=0.8\columnwidth]{figures/approx.eps}
-	\caption{Selective Training Elision (after 5000 steps)}
-	\label{fig:approx}
-\end{figure}
 
-In Figure \ref{fig:approx}, we plot the obtained accuracy versus the training step for a selective training elision experiment running on a single machine. For each of the compared experiments we train all layers of the model until the 5000th training step. For the subsequent steps the training data is used to update only the top $\eta$ trainable layers of the model, where $\eta$ was chosen between $1$ to $4$ in our experiments. Note that, for a $N$ layer neural network $\eta=i$ corresponds to update elision for the first $N-\eta$ trainable layers. From the plot we can observe that eliding layer updates has a slight impact on accuracy. The fewer the number of elided layers, the greater the accuracy of the trained model. 
-
-\begin{figure}[t]
-	\centering
-	\includegraphics[width=0.8\columnwidth]{figures/periodic-approx-2.eps}
-	\caption{Periodic Selective Training Elision (every 2 steps)}
-	\label{fig:periodic-approx-2}
-\end{figure}
-\begin{figure}[t]
-	\centering
-	\includegraphics[width=0.8\columnwidth]{figures/periodic-approx-5.eps}
-	\caption{Periodic Selective Training Elision (every 5 steps)}
-	\label{fig:periodic-approx-5}
-\end{figure}
-
-In Figures \ref{fig:periodic-approx-2} and \ref{fig:periodic-approx-5}, we plot the obtained accuracy versus the training step for periodic selective training elision experiments running on a single machine. For the experiments shown in Figure \ref{fig:periodic-approx-2}, the periodic elision interval $n$ was set to 2, and the those in Figure \ref{fig:periodic-approx-5}, $n$ was set to 5. 
-
-
-\begin{figure}[t]
-	\centering
-	\includegraphics[width=0.8\columnwidth]{figures/approx-2workers.eps}
-	\caption{Selective Training Elision (after 5000 steps) using 2 Asynchronous Workers}
-	\label{fig:approx-2-workers}
-\end{figure}
-
-\begin{figure}[t]
-	\centering
-	\includegraphics[width=0.8\columnwidth]{figures/combined_bottom_top_elisions.eps}
-	\caption{Selective Training Elision (every 2 steps)}
-	\label{fig:combined-alt}
-\end{figure}
