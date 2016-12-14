@@ -56,6 +56,19 @@ This performance improvement
 comes at the cost of reduced accuracy of the trained network (~10\%
 on average)
 
+\begin{figure}[h]
+\centering
+  \includegraphics[keepaspectratio,width=\columnwidth]{figures/cpu_util.PNG}
+  \caption{\textbf{CPU utilization across workers}}
+  \label{fig:cpuutil}
+\end{figure}
+
+Figure \ref{fig:cpuutil} shows the average CPU utilization for the 
+different configurations mentioned above. The data shows that the 
+CPU utilization drops as the number of workers increases for 
+{\em both} synchronous and asynchronous training. This trend
+indicates the presence of stragglers for asynchronous training.
+
 The poor scaling of distributed training motivates the need for
 approximation strategies to improve execution time without 
 significantly compromising on model accuracy.
