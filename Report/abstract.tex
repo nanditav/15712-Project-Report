@@ -1,5 +1,20 @@
 \begin{abstract}
 
+The increase in the amount of data used by machine learning
+applications has necessitated the need for distrbution across
+many machines. Distribution at this scale poses a challenge
+to efficiently scale computations across multiple workers.
+In the context of distributed training of deep neural networks, 
+synchronous updates every iteration restricts scalability to
+a few machines. To address this scalability bottleneck, we 
+exploit the tolerance of neural networks to approximations.
+We explore different approximation strategies that elide
+updates to the different layers of the network.
+Our studies reveal that approximating updates to a few 
+layers of the neural network can improve the training
+time of the network without significantly compromising
+the accuracy of the trained model.
+
 
 
 \end{abstract}
