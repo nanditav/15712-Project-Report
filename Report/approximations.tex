@@ -19,24 +19,24 @@ From Figure 1, we make the following observations:
 \item When eliding the \emph{same number} of layers, eliding training for the \emph{top layers} first consistently faster convergence and better accuracy than eliding the bottom layers.
 \item Eliding the bottom 4 layers anomalously produces faster convergence than eliding the 3 bottom layers. 
 \end{enumerate}
-\subsubsection{Single Node Accuracy & Training Time.}
+\subsubsection{Single Node Accuracy \& Training Time.}
 Figure 1: Periodic Training Elision (every 2 steps for both upper layers and lower layers) -- Accuracy
 \textbf{How}
 Figure 2: Periodic Training Elision (every 5) -- Accuracy
-Figure 3: Periodic Training Elision (every 2 & 5 steps for both upper layers and lower layers) -- Execution Time
+Figure 3: Periodic Training Elision (every 2 \& 5 steps for both upper layers and lower layers) -- Execution Time
 \subsubsection{Mutiple Workers Accuracy and Training Time.}
 Figure 4: Periodic Training Elision 2 workers (every 2 steps for both upper layers and lower layers) -- Accuracy
 Figure 5: Periodic Training Elision 4 workers (every 2 steps for both upper layers and lower layers) -- Accuracy
-Figure 6: Periodic Training Elision 2&4 workers (every 2 steps for both upper layers and lower layers) -- Execution Time
+Figure 6: Periodic Training Elision 2\&4 workers (every 2 steps for both upper layers and lower layers) -- Execution Time
 \subsection{Selective Early Termination}
 \subsubsection{Single Node.} 
 Figure 7: Selective Early Termination (2K steps) -- Accuracy
 Figure 8: Selective Early Termination (5K steps) -- Accuracy
-Figure 9: Selective Early Termination (2K & 5K steps) -- Execution Time
+Figure 9: Selective Early Termination (2K \& 5K steps) -- Execution Time
 \subsubsection{Multiple Workers}
 Figure 10: Selective Early Termination 2 workers (5K steps) -- Accuracy 
 Figure 11: Selective Early Termination 4 workers (2K steps) -- Accuracy
-Figure 12: Selective Early Termination 2 & 4 (2K & 5K steps) -- Execution Time
+Figure 12: Selective Early Termination 2 \& 4 (2K \& 5K steps) -- Execution Time
 \begin{figure}[t]
 	\centering
 	\includegraphics[width=0.8\columnwidth]{figures/approx.eps}
