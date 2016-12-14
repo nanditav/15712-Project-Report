@@ -34,6 +34,7 @@ In addition to Figure~\ref{fig:fig2} where the periodicity of training elision w
 	\label{fig:fig2}
 \end{figure}
 We also evaluated the resulting speedup in training time as a result of the described approximations. Figure~\ref{fig:fig3}depicts the normalized training speedup for both 2 and 5 step periodic training elision. We make the following observations: \emph{(i)} we observe that eliding training for 4 layers (2 step) produces a speedup of as much as 45\%; \emph{(ii)} Eliding training with a lower periodicity of 5 steps does not produce a significant bump in speedup (only 11.8\%); \emph{(iii)} Eliding a single layer produces only an insignificant improvement in training time. Since this is a single node experiment, the speedups come from eliding the gradient computation for several layers.  
+
 \begin{figure}[t]
 	\centering
 	\includegraphics[width=0.8\columnwidth]{figures/fig3.PNG}
@@ -46,12 +47,14 @@ We also evaluated the resulting speedup in training time as a result of the desc
 %Figure 3: Periodic Training Elision (every 2 \& 5 steps for both upper layers and lower layers) -- Execution Time
 \subsubsection{Mutiple Workers Accuracy and Training Time.}
 Figure~\ref{fig:fig4} depicts periodic training elision in a distributed setting with 4 workers. We find that approximating training for both 3 and 4 layers does not have a noticeable impact on convergence or accuracy.\footnote{It is possible that the impact of approximation is only noticeable after our evaluated training time of 2000 steps.} Figure~\ref{fig:fig5} depicts the normalized speedup for periodic training elision with 4 workers. We find that periodic training elision is able to provide a speedup of as much as 2.7x while eliding training for 3 layers, and 2.85x for 4 layers. 
+
 \begin{figure}[t]
 	\centering
 	\includegraphics[width=0.8\columnwidth]{figures/fig4.eps}
 	\caption{Periodic Training Elision: 4 workers (every 2 steps)}
 	\label{fig:fig4}
 \end{figure}
+
 \begin{figure}[t]
 	\centering
 	\includegraphics[width=0.8\columnwidth]{figures/fig5.PNG}
@@ -64,12 +67,14 @@ Figure~\ref{fig:fig4} depicts periodic training elision in a distributed setting
 \subsubsection{Single Node Accuracy and Speedup} 
 In Figure~\ref{fig:fig6}, we plot the obtained accuracy versus the training step for a selective early termination experiment running on a single machine. For each of the compared experiments we train all layers of the model until the 5000th training step. For the subsequent steps the training data is used to update only the top $\eta$ trainable layers of the model, where $\eta$ was chosen between $1$ to $4$ in our experiments. Note that, for a $N$ layer neural network $\eta=i$ corresponds to update elision for the first $N-\eta$ trainable layers. From the plot we can observe that eliding one layer has a neglible impact on accuracy, but eliding more than one layer leads to about 3\% drop in accuracy. After the training termination point, the network continues to improve accuracy for a short while, before converging on accuracy that is less than Baseline. 
 Figure~\ref{fig:fig7} depicts the normalized speedup for selective early termination. We find that on a single machine selective early termination is able to produce as much as 2.3x reduction in training time.  
+
 \begin{figure}[t]
 	\centering
 	\includegraphics[width=0.8\columnwidth]{figures/fig6.eps}
 	\caption{Selective Early Termination: 1 worker}
 	\label{fig:fig6}
 \end{figure}
+
 \begin{figure}[t]
 	\centering
 	\includegraphics[width=0.8\columnwidth]{figures/fig7.PNG}
@@ -91,7 +96,7 @@ Figure~\ref{fig:fig7} depicts the normalized speedup for selective early termina
 	\caption{Selective Early Termination for 4 workers (after 2K steps)}
 	\label{fig:fig9}
 \end{figure}
-begin{figure}[t]
+\begin{figure}[t]
 	\centering
 	\includegraphics[width=0.8\columnwidth]{figures/fig10.PNG}
 	\caption{Normalized speedup for Selective Early Termination: 2 and 4 workers}
