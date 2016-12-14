@@ -1,4 +1,4 @@
-\subsection{Evaluation and Analysis}
+\section{Evaluation and Analysis}
 In this section, we evaluate the above techniques to leverage the approximation-tolerance of the neural network to accelerate distributed training. We essentially performing \textit{training update elisions}, which involves not updating the weights and biases of specific layers at certain training steps. Two kinds of training elisions were explored:
 \begin{itemize}
 	\item \textit{Periodic Training Elision} involves performing training elisions once every $n$ steps, where $n$ is called the periodic elision interval. The parameters of the entire network are updated for $n-1$ steps, followed by a step where only parameters corresponding to certain layers are updated.
@@ -10,7 +10,24 @@ Both types of approximations partially update the model weights in a specified t
 
 We now discuss the experimental results. Different approximation techniques are compared on the basis of classification accuracy (on the full testing data) and training time. We present results for both single node training as well as distributed training for a number of different cluster configurations. In each of our experiments, we checkpoint the model every 1000 trained steps, and use the checkpointed model to compute the achieved classification accuracy.
 
-\subsubsection{Periodic Training Elision}
+\subsection{Periodic Training Elision}
+\subsubsection{Single Node.}
+Figure 1: Periodic Training Elision (every 2 steps for both upper layers and lower layers) -- Accuracy
+Figure 2: Periodic Training Elision (every 5) -- Accuracy
+Figure 3: Periodic Training Elision (every 2 & 5 steps for both upper layers and lower layers) -- Execution Time
+\subsubsection{Mutiple Workers.}
+Figure 5: Periodic Training Elision 2 workers (every 2 steps for both upper layers and lower layers) -- Accuracy
+Figure 6: Periodic Training Elision 4 workers (every 2 steps for both upper layers and lower layers) -- Accuracy
+Figure 7: Periodic Training Elision 2&4 workers (every 2 steps for both upper layers and lower layers) -- Execution Time
+\subsection{Selective Early Termination}
+\subsubsection{Single Node.} 
+Figure 8: Selective Early Termination (2K steps) -- Accuracy
+Figure 9: Selective Early Termination (5K steps) -- Accuracy
+Figure 10: Selective Early Termination (2K & 5K steps) -- Execution Time
+\subsubsection{Multiple Workers}
+Figure 8: Selective Early Termination 2 workers (5K steps) -- Accuracy 
+Figure 9: Selective Early Termination 4 workers (2K steps) -- Accuracy
+Figure 10: Selective Early Termination 2 & 4 (2K & 5K steps) -- Execution Time
 \begin{figure}[t]
 	\centering
 	\includegraphics[width=0.8\columnwidth]{figures/approx.eps}
