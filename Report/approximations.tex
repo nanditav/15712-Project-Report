@@ -22,22 +22,23 @@ From Figure 1, we make the following observations:
 \subsubsection{Single Node Accuracy \& Training Time.}
 In addition to Figure 1 where the periodicity of training elision was \emph{two steps}, we conduct an experiment where we elide training at a periodicity of \emph{5 steps}. The accuracy results are depicted in Figure 2. We find that the neural network is resilient enough to tolerate this approximation irrespective of the number of layers for which training was elided with the exception of eliding the bottom 4 layers which produced a minor reduction in the accuracy. 
 
+We also evaluated the resulting speedup in training time as a result of the described approximations. Figure 3 depicts the normalized training speedup for both 2 and 5 step periodic training elision. We make the following observations: \emph{(i)} First, we observe that eliding training for 4 layers (2 step) produces a speedup of as much as 45\%; \emph{(ii)} Second, 
+Since this is a single node experiment, the speedups come from eliding the gradient computation for several layers.  
 Figure 1: Periodic Training Elision (every 2 steps for both upper layers and lower layers) -- Accuracy
 Figure 2: Periodic Training Elision (every 5) -- Accuracy
 Figure 3: Periodic Training Elision (every 2 \& 5 steps for both upper layers and lower layers) -- Execution Time
 \subsubsection{Mutiple Workers Accuracy and Training Time.}
-Figure 4: Periodic Training Elision 2 workers (every 2 steps for both upper layers and lower layers) -- Accuracy
-Figure 5: Periodic Training Elision 4 workers (every 2 steps for both upper layers and lower layers) -- Accuracy
-Figure 6: Periodic Training Elision 2\&4 workers (every 2 steps for both upper layers and lower layers) -- Execution Time
+Figure 4: Periodic Training Elision 4 workers (every 2 steps for both upper layers and lower layers) -- Accuracy
+Figure 5: Periodic Training Elision 4 workers (every 2 steps for both upper layers and lower layers) -- Execution Time
 \subsection{Selective Early Termination}
 \subsubsection{Single Node.} 
-Figure 7: Selective Early Termination (2K steps) -- Accuracy
-Figure 8: Selective Early Termination (5K steps) -- Accuracy
-Figure 9: Selective Early Termination (2K \& 5K steps) -- Execution Time
+Figure 6: Selective Early Termination (2K steps) -- Accuracy
+Figure 7: Selective Early Termination (5K steps) -- Accuracy
+Figure 8: Selective Early Termination (2K \& 5K steps) -- Execution Time
 \subsubsection{Multiple Workers}
-Figure 10: Selective Early Termination 2 workers (5K steps) -- Accuracy 
-Figure 11: Selective Early Termination 4 workers (2K steps) -- Accuracy
-Figure 12: Selective Early Termination 2 \& 4 (2K \& 5K steps) -- Execution Time
+Figure 9: Selective Early Termination 2 workers (5K steps) -- Accuracy 
+Figure 10: Selective Early Termination 4 workers (2K steps) -- Accuracy
+Figure 11: Selective Early Termination 2 \& 4 (2K \& 5K steps) -- Execution Time
 \begin{figure}[t]
 	\centering
 	\includegraphics[width=0.8\columnwidth]{figures/approx.eps}
