@@ -1,6 +1,39 @@
 \section{Related Works}
 
+In this section, we compare our work with prior research
+on application specific consistency models, distributed
+machine learning frameworks and approximating connections 
+of deep neural networks.
 
+\emph{\textbf{Data consistency}} There has been considerable
+research in relaxed consistency models to improve performance
+of distributed machine learning deployments \cite{ganger}\cite{stalesynchronousps}\cite{garth}\cite{parameterserver}.
+The proposed solutions vary from performing an empirical study on the 
+convergence of different parameter server consistency model\cite{garth}, 
+heuristics to bound the amount of staleness \cite{ganger} to 
+allowing the programmer to specify the required consistency model \cite{parameterserver}.
+Our work takes the same direction as these prior work, by exploring
+relaxed consistency models for improved performance. However, we take
+a different approach from these works because we use application specific
+hints to understand the effect of approximation on different layers of a 
+deep neural network.
+
+\emph{\textbf{Distributed Machine Learning Frameworks}} There are many
+machine learning frameworks that allow distributed machine learning \cite{tensorflow}
+\cite{parameterserver}\cite{distbelief}\cite{petuum}\cite{mxnet}. The sheer number
+of these frameworks indicates the importance of distributing machine learning
+applications across multiple machines. We expect our approximation strategies
+to be applicable generally across different frameworks.
+
+\emph{\textbf{Approximating network connections}} Recent work has explored 
+compressing deep neural network to reduce the storage overhead of storing 
+model parameters \cite{compresseddnn}\cite{eie}. These works rely on techniques
+such as reducing the floating point precision of network weights and pruning
+the connections from a fully connected network. While the general idea of 
+exploiting the network structures to optimize performance and size of the network
+is similar to our work, the main difference is that these works solely focus on 
+the problem of inference. It would be interesting to study whether the proposed
+techniques would work for the problem of network training.
 
  
 
